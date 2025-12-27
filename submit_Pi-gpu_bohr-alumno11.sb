@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH -J pi_gpu
+#SBATCH --partition=bohr-gpu 
+#SBATCH --chdir=/home/alumno11/lab-gpu
+#SBATCH --cpus-per-task=1
+#SBATCH --output=pi_gpu_%j.out
+
+module load anaconda/2025.06
+
+# El primer argumento del sbatch será N
+ipython pi-gpu-alumno11.ipynb $1
+
+module unload anaconda/2025.06
+
+
