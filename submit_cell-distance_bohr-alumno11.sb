@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -J extra_gpu
+#SBATCH --partition=bohr-gpu 
+#SBATCH --chdir=/home/alumno11/lab-gpu
+#SBATCH --cpus-per-task=1
+#SBATCH --output=extra_gpu_%j.out
+
+module load anaconda/2025.06
+
+# $1 = N, $2 = D
+ipython cell-distance-pytorch-alumno11.ipynb $1 $2
+
+module unload anaconda/2025.06
+
